@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-black: #000000;
+    --neon-green: #00FF66;
+    --neon-amber: #FFB800;
+    --neon-red: #FF3333;
+    --border-white: #FFFFFF;
+    --wire-gray: #222222;
+  }
+
+  /* STRICT ZERO BORDER RADIUS ENFORCEMENT */
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* NO SOFT BLUR - TACTILE BRUTALISM ONLY */
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  html, body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Space Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Neo-serif utility */
+  .font-neo-serif {
+    font-family: 'Playfair Display', 'Cinzel', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-cinzel {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    letter-spacing: 0.05em;
+  }
+
+  .font-mono-tech {
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Brutalist Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-left: 1px solid #333333;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00FF66;
+}
+
+/* Tactile Industrial Grid pattern (Pure 1px sharp lines, zero blur) */
+.bg-grid-tech {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+}
+
+.bg-dot-matrix {
+  background-size: 16px 16px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+}
+
+/* Tactile brutalist button physics */
+.tactile-btn-primary {
+  background-color: #00FF66;
+  color: #000000;
+  font-weight: 800;
+  border: 1px solid #00FF66;
+  box-shadow: 4px 4px 0px #FFFFFF;
+  transition: transform 0.05s ease, box-shadow 0.05s ease, background-color 0.1s ease;
+}
+
+.tactile-btn-primary:hover:not(:disabled) {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+  box-shadow: 4px 4px 0px #00FF66;
+}
+
+.tactile-btn-primary:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #FFFFFF;
+}
+
+.tactile-btn-primary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.tactile-btn-secondary {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1px solid #FFFFFF;
+  box-shadow: 4px 4px 0px #333333;
+  transition: transform 0.05s ease, box-shadow 0.05s ease, background-color 0.1s ease;
+}
+
+.tactile-btn-secondary:hover:not(:disabled) {
+  background-color: #FFFFFF;
+  color: #000000;
+  box-shadow: 4px 4px 0px #00FF66;
+}
+
+.tactile-btn-secondary:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #00FF66;
+}
+
+.tactile-btn-danger {
+  background-color: #000000;
+  color: #FF3333;
+  font-weight: 700;
+  border: 1px solid #FF3333;
+  box-shadow: 4px 4px 0px #FF3333;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.tactile-btn-danger:hover:not(:disabled) {
+  background-color: #FF3333;
+  color: #000000;
+}
+
+.tactile-btn-danger:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #FFFFFF;
+}
+
+/* Hard brutalist box shadows */
+.brutalist-shadow-white {
+  box-shadow: 4px 4px 0px #FFFFFF;
+}
+
+.brutalist-shadow-green {
+  box-shadow: 4px 4px 0px #00FF66;
+}
+
+.brutalist-shadow-solid {
+  box-shadow: 6px 6px 0px #222222;
+}
+
+/* Mechanical Scanline strip (optional decorative accent) */
+.scanline-strip {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* Perforated receipt cut line */
+.perforated-cut {
+  background-image: linear-gradient(to right, #ffffff 40%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+}
+
+/* Print Styles for Printable Brutalist Invoice */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .invoice-printable {
+    border: 2px solid #000000 !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+}
